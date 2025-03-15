@@ -12,7 +12,7 @@
 
 .socialMedia svg 
 {
-    color: rgb(218, 165, 21);
+    color: #fcba23;
     margin: 20px;
     font-size: 70px;
     cursor: pointer;
@@ -20,7 +20,7 @@
 
 .footer p
 {
-    color: rgb(218, 165, 21);
+    color: #fcba23;
     font-weight: bold;
 
 }

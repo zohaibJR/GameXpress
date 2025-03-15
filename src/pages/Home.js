@@ -9,7 +9,7 @@ function Home() {
       <div className="headerContainer" >
         <h1>GameXpress</h1>
         <p>Where Every Game Finds a Player</p>
-        <Link to="/item"> {/* ✅ Fixed extra space */}
+        <Link to="/Items"> {/* ✅ Fixed extra space */}
           <button>Order Now</button>
         </Link>
       </div>

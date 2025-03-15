@@ -22,15 +22,15 @@
     font-size: 120px;
     height: 60px;
     font-weight: 50;
-    color: black;
-    font-weight: bold;
+    color: #191970;
+    font-weight: bolder;
   }
   
   .headerContainer p {
     padding: 0;
     font-size: 40px;
     font-weight: lighter;
-    color: black;
+    color: #191970;
     font-weight: bold;
   }
   
@@ -40,12 +40,13 @@
     border-radius: 5px;
     cursor: pointer;
     justify-content: center;
-    background-color: #191970; ;
-    height: 50px;
-    width: 180px;
+    background-color: #191970; 
+    height: 80px;
+    width: 250px;
     color: rgb(218, 165, 21);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
   }
   
   .headerContainer button:hover {

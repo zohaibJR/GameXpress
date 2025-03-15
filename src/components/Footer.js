@@ -16,7 +16,7 @@ function Footer() {
         <TwitterIcon />
         <LinkedInIcon />
       </div>
-      <p>&copy; 2025 GameXpress | Level Up Your Gaming Experience</p>
+      <p>&copy; 2025 GameXpress | Level Up Your Gaming Experiences</p>
 
     </div>
   )

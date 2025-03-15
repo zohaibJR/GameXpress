@@ -31,13 +31,14 @@
     font-size: 30px;
     text-align: center;
     font-weight: bold;
+    color: #191970;
 }
 
 .about .aboutBottom h1
 {
     font-weight: 400;
     font-size: 70px;
-    color: black;
+    color: #191970;
     height: 30px;
     display: flex;
     justify-content: center;

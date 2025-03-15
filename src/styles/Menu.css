@@ -1,0 +1,105 @@
+/* General Menu Styling */
+.menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+}
+
+/* Menu Title Styling */
+.menu .menuTitle {
+    font-family: 'Poppins', cursive;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #222;
+}
+
+/* Grid Layout for Items */
+.menuList {
+    width: 80vw;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Styling for Each Menu Item */
+.menuItem {
+    border-radius: 15px;
+    width: 100%;
+    max-width: 320px;
+    height: auto; /* Allow height to adjust dynamically */
+    background: white;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 15px; /* Adjusted to minimize bottom space */
+}
+
+/* Hover Effect */
+.menuItem:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* Image Section (Wider Vertically) */
+.menuItem div {
+    width: 100%;
+    height: 270px; /* Ensuring the image remains proportionate */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.menuItem:hover div {
+    filter: brightness(90%);
+}
+
+/* Title & Price - Removed Extra Space */
+.menuItem h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px; /* Adjusted to remove excess spacing */
+}
+
+.menuItem p {
+    font-size: 16px;
+    color: #000000;
+    margin: 5px 0; /* Removed unnecessary margin */
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1300px) {
+    .menuList {
+        width: 90vw;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .menuList {
+        grid-template-columns: 1fr;
+    }
+
+    .menu .menuTitle {
+        font-size: 50px;
+    }
+}

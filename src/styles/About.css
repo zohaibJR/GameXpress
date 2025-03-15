@@ -1,0 +1,46 @@
+.about
+{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutTop
+{
+    width: 100%;
+    height: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', cursive;
+}
+
+.aboutBottom
+{
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.aboutBottom p
+{
+    width: 1200px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about .aboutBottom h1
+{
+    font-weight: 400;
+    font-size: 70px;
+    color: black;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-20px);
+    font-weight: bolder;
+}

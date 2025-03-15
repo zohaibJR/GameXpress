@@ -2,7 +2,7 @@
 {
     width: 100%;
     height: 150px;
-    background-color: #121219;
+    background-color: #191970;  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
 
 .socialMedia svg 
 {
-    color: white;
+    color: rgb(218, 165, 21);
     margin: 20px;
     font-size: 70px;
     cursor: pointer;
@@ -20,6 +20,7 @@
 
 .footer p
 {
-    color: white;
+    color: rgb(218, 165, 21);
+    font-weight: bold;
 
 }

@@ -3,8 +3,15 @@ import RDR2 from "../assets/RDR2.png"
 import CODBlackOps2 from "../assets/COD.png"
 import KingdomComeDeliverance from "../assets/KGD.png"
 import HelloNeighbor2 from "../assets/HN2.png"
+import GTA5 from "../assets/GTA5.png"
+
 
 export const MenuList = [
+        {
+            name: "GTA 5",
+            image: GTA5,
+            Price: 5000,
+        },
         {
             name: "FIFA 25",
             image: Fifa25,

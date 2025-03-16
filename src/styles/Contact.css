@@ -57,8 +57,9 @@
   input::placeholder,
   textarea::placeholder {
     font-weight: bold;
-    color: black;
+    color: rgb(65, 64, 64);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
   }
   form input:focus,
   textarea:focus {
@@ -68,6 +69,7 @@
   form label {
     margin-top: 15px;
     color: #191970;
+    font-size: 22px;
     font-weight: bold;
   }
   
@@ -77,7 +79,7 @@
     height: 70px;
     border: none;
     background-color: #191970;
-    color: whitesmoke;
+    color: #fcba23;
     font-size: 15px;
     cursor: pointer;
     font-size: 20px;

@@ -1,105 +1,126 @@
-/* General Menu Styling */
+/* Menu.css */
 .menu {
     width: 100%;
-    height: auto;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    padding: 50px 20px;
-    background-color: #f8f8f8;
+    align-items: center;
+    padding: 60px 5%;
+    background-color: #f0f2f5; /* Light neutral bg to make cards pop */
+    box-sizing: border-box;
 }
 
-/* Menu Title Styling */
-.menu .menuTitle {
-    font-family: 'Poppins', cursive;
-    font-size: 60px;
-    font-weight: bold;
-    margin-bottom: 30px;
+.menuTitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(35px, 6vw, 60px);
+    font-weight: 800;
+    margin-bottom: 50px;
     text-align: center;
     color: #191970;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Grid Layout for Items */
+/* Fluid Grid Layout */
 .menuList {
-    width: 80vw;
+    width: 100%;
     max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    /* Automatically handles columns based on available width */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+    justify-items: center;
 }
 
-/* Styling for Each Menu Item */
+/* Styling for Each Menu Item Card */
 .menuItem {
-    border-radius: 15px;
     width: 100%;
-    max-width: 320px;
-    height: auto; /* Allow height to adjust dynamically */
-    background: white;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 15px; /* Adjusted to minimize bottom space */
+    border: 1px solid rgba(25, 25, 112, 0.1);
 }
 
-/* Hover Effect */
 .menuItem:hover {
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px);
-    cursor: pointer;
+    box-shadow: 0px 15px 45px rgba(25, 25, 112, 0.2);
+    transform: translateY(-10px);
+    border-color: #fcba23;
 }
 
-/* Image Section (Wider Vertically) */
-.menuItem div {
+/* Image Handling */
+.imageContainer {
     width: 100%;
-    height: 270px; /* Ensuring the image remains proportionate */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all 0.3s ease-in-out;
+    height: 250px;
+    overflow: hidden;
+    background-color: #eee;
 }
 
-/* Hover Effect on Image */
-.menuItem:hover div {
-    filter: brightness(90%);
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-/* Title & Price - Removed Extra Space */
-.menuItem h1 {
-    font-size: 20px;
+.menuItem:hover .imageContainer img {
+    transform: scale(1.1);
+}
+
+.itemInfo {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itemInfo h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #191970;
+    margin: 0;
+}
+
+.itemInfo p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* New Button to match GameXpress Theme */
+.itemButton {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #191970;
+    color: #fcba23;
+    border: none;
+    border-radius: 8px;
     font-weight: bold;
-    color: #333333;
-    margin: 10px 0 5px; /* Adjusted to remove excess spacing */
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.menuItem p {
-    font-size: 16px;
-    color: #000000;
-    margin: 5px 0; /* Removed unnecessary margin */
+.itemButton:hover {
+    background-color: #000;
+    color: #fff;
 }
 
-/* Responsive Design */
-@media only screen and (max-width: 1300px) {
-    .menuList {
-        width: 90vw;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* Mobile Adjustments */
+@media only screen and (max-width: 600px) {
+    .menu {
+        padding: 40px 20px;
     }
-}
-
-@media only screen and (max-width: 800px) {
+    
     .menuList {
-        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
-    .menu .menuTitle {
-        font-size: 50px;
+    .menuItem {
+        max-width: 350px; /* Centered larger card on mobile */
     }
 }

@@ -1,39 +1,43 @@
-import React, { useState } from 'react'
-import Logo from '../assets/pizzaLogo.png'
+import React, { useState } from 'react';
+import Logo from '../assets/pizzaLogo.png'; // This will be your GameXpress logo
 import { Link } from "react-router-dom";
 import ReorderIcon from '@mui/icons-material/Reorder';
-import '../styles/NavBar.css'
+import CloseIcon from '@mui/icons-material/Close';
+import '../styles/NavBar.css';
 
 function Navbar() {
+  const [isMobile, setIsMobile] = useState(false);
 
-  const [openLinks, setOpenLinks] = useState(false)
-
-  const toggleNavbar = () => {
-    setOpenLinks(!openLinks);
-  }
+  const toggleMobileMenu = () => {
+    setIsMobile(!isMobile);
+  };
 
   return (
-    <div className="navbar">
-        <div className="leftSide" id={openLinks ? "open" : "close"}>
-            <img src={Logo} />
-            <div className="hiddenLinks">
-            <Link to="/">Home</Link>
-            <Link to="/menu">Items</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-            </div>
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="leftSide">
+          <Link to="/">
+            <img src={Logo} alt="GameXpress Logo" className="logo" />
+          </Link>
         </div>
+
         <div className="rightSide">
-            <Link to="/">Home</Link>
-            <Link to="/Items">Items</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-            <button onClick={toggleNavbar}>
-              <ReorderIcon />
-            </button>
+          {/* Desktop & Mobile Links */}
+          <div className={isMobile ? "nav-links-mobile" : "nav-links"}>
+            <Link to="/" onClick={() => setIsMobile(false)}>Home</Link>
+            <Link to="/Items" onClick={() => setIsMobile(false)}>Items</Link>
+            <Link to="/about" onClick={() => setIsMobile(false)}>About</Link>
+            <Link to="/contact" onClick={() => setIsMobile(false)}>Contact</Link>
+          </div>
+
+          {/* Toggle Button for Mobile */}
+          <button className="mobile-menu-icon" onClick={toggleMobileMenu}>
+            {isMobile ? <CloseIcon /> : <ReorderIcon />}
+          </button>
         </div>
-    </div>
-  )
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

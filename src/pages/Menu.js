@@ -6,18 +6,16 @@ import '../styles/Menu.css'
 function Menu() {
   return (
     <div className="menu">
-      <h1 className="menuTitle">Our Items</h1>
+      <h1 className="menuTitle">Our Collection</h1>
       <div className="menuList">
-        {MenuList.map((menuItem, key) => {
-          return (
-            <MenuItem
-              key={key}
-              image={menuItem.image}
-              name={menuItem.name}
-              price={menuItem.Price}
-            />
-          );
-        })}
+        {MenuList.map((menuItem, key) => (
+          <MenuItem
+            key={key}
+            image={menuItem.image}
+            name={menuItem.name}
+            price={menuItem.Price}
+          />
+        ))}
       </div>
     </div>
   );

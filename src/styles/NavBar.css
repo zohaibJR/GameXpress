@@ -1,112 +1,121 @@
+/* NavBar.css */
 .navbar {
+  width: 100%;
+  height: 90px;
+  background-color: #191970; /* Midnight Blue from your image */
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.leftSide .logo {
+  width: 140px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.leftSide .logo:hover {
+  transform: scale(1.05);
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fcba23; /* Golden Yellow from your image */
+  text-decoration: none;
+  margin-left: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(252, 186, 35, 0.6);
+}
+
+/* Hide Mobile Toggle on Desktop */
+.mobile-menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  color: #fcba23;
+  cursor: pointer;
+}
+
+.mobile-menu-icon svg {
+  font-size: 40px;
+}
+
+/* --- RESPONSIVENESS --- */
+
+@media screen and (max-width: 850px) {
+  .nav-container {
+    padding: 0 30px;
+  }
+
+  /* Switch to Mobile Toggle */
+  .nav-links {
+    display: none; /* Hide standard links */
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  /* Mobile Dropdown Styling */
+  .nav-links-mobile {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: #191970;
+    left: 0;
+    top: 90px;
     width: 100%;
-    height: 100px;
-    /* Deep Navy Blue
-    background-color: #0a1f44;
-    Dark Royal Blue
-    background-color: #1a237e;  
-    Midnight Blue
-    background-color: #191970;  
-    Charcoal Blue
-    background-color: #232F3E;   */
-    background-color: #191970;  
-    display: flex;
-    flex-direction: row;
+    padding: 20px 0;
+    border-top: 1px solid rgba(252, 186, 35, 0.2);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease;
   }
-  
-  .navbar .leftSide {
-    flex: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: 150px;
-  }
-  
-  .navbar .leftSide img {
-    width: 150px;
-  }
-  
-  .navbar .rightSide {
-    flex: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .navbar a {
+
+  .nav-links-mobile a {
     color: #fcba23;
     text-decoration: none;
-    margin: 20px;
+    padding: 15px;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+    width: 100%;
+    transition: background 0.3s;
   }
-  
-  .navbar .rightSide button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
+
+  .nav-links-mobile a:hover {
+    background-color: rgba(252, 186, 35, 0.1);
+    color: #ffffff;
   }
-  
-  .navbar .rightSide svg {
-    font-size: 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .leftSide .logo {
+    width: 110px;
   }
-  
-  .navbar #open {
-    padding-left: 0px;
-  }
-  .navbar #open img {
-    display: none;
-  }
-  
-  .navbar #close img {
-    display: inherit;
-  }
-  
-  .navbar #open .hiddenLinks {
-    display: inherit;
-    margin-left: 30px;
-  }
-  
-  .navbar #close .hiddenLinks {
-    display: none;
-  }
-  
-  .navbar #open a {
-    width: 70px;
-    margin: 5px;
-  }
-  @media only screen and (max-width: 900px) {
-    .navbar .rightSide a {
-      width: 70px;
-    }
-    .navbar .leftSide {
-      padding-left: 50px;
-    }
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .navbar .rightSide a {
-      display: none;
-    }
-  
-    .navbar .rightSide {
-      justify-content: flex-end;
-      padding-right: 50px;
-    }
-  
-    .navbar .rightSide button {
-      display: inherit;
-    }
-  }
-  
-  @media only screen and (min-width: 600px) {
-    .navbar .rightSide button {
-      display: none;
-    }
-  
-    .hiddenLinks {
-      display: none;
-    }
-  }
+}

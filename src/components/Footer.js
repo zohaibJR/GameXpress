@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
-import '../styles/Footer.css'
-
+import '../styles/Footer.css';
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="socialMedia">
         <InstagramIcon /> 
         <FacebookIcon />
@@ -17,9 +15,8 @@ function Footer() {
         <LinkedInIcon />
       </div>
       <p>&copy; 2025 GameXpress | Level Up Your Gaming Experiences</p>
-
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

@@ -1,26 +1,76 @@
-.footer
-{
-    width: 100%;
-    height: 150px;
-    background-color: #191970;  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 10px;
+/* Footer.css */
+.footer {
+  width: 100%;
+  min-height: 200px;
+  background-color: #191970; /* Midnight Blue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border-top: 3px solid #fcba23; /* Golden Yellow Accent Line */
 }
 
-.socialMedia svg 
-{
-    color: #fcba23;
-    margin: 20px;
-    font-size: 70px;
-    cursor: pointer;
+.socialMedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows icons to stack on very small screens */
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.footer p
-{
-    color: #fcba23;
-    font-weight: bold;
+.socialMedia svg {
+  color: #fcba23; /* Golden Yellow */
+  margin: 10px 20px;
+  /* Fluid icon size: adjusts between 40px and 60px */
+  font-size: clamp(40px, 6vw, 60px); 
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
 
+/* Hover effect to create a gaming "glow" */
+.socialMedia svg:hover {
+  color: #ffffff;
+  transform: translateY(-5px);
+  filter: drop-shadow(0 0 10px rgba(252, 186, 35, 0.8));
+}
+
+.footer p {
+  color: #fcba23;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* --- RESPONSIVENESS --- */
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding: 30px 10px;
+  }
+
+  .socialMedia svg {
+    margin: 10px; /* Reduce spacing on mobile */
+  }
+
+  .footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+}
+
+/* Extra small devices */
+@media only screen and (max-width: 400px) {
+  .socialMedia {
+    gap: 5px;
+  }
+  
+  .socialMedia svg {
+    font-size: 35px;
+  }
 }

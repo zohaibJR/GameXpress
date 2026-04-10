@@ -1,76 +1,120 @@
-/* Footer.css */
+/* Footer.css — Cyberpunk Theme */
+
 .footer {
   width: 100%;
-  min-height: 200px;
-  background-color: #191970; /* Midnight Blue */
+  background: var(--dark-panel);
+  border-top: 1px solid rgba(0, 245, 255, 0.12);
+  padding: 40px 5%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  border-top: 3px solid #fcba23; /* Golden Yellow Accent Line */
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Top glow line */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+}
+
+/* Brand */
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Social icons */
 .socialMedia {
   display: flex;
-  justify-content: center;
+  gap: 16px;
   align-items: center;
-  flex-wrap: wrap; /* Allows icons to stack on very small screens */
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
-.socialMedia svg {
-  color: #fcba23; /* Golden Yellow */
-  margin: 10px 20px;
-  /* Fluid icon size: adjusts between 40px and 60px */
-  font-size: clamp(40px, 6vw, 60px); 
+.socialMedia svg,
+.socialMedia a {
+  color: var(--text-secondary);
+  font-size: 22px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 245, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
 }
 
-/* Hover effect to create a gaming "glow" */
-.socialMedia svg:hover {
-  color: #ffffff;
-  transform: translateY(-5px);
-  filter: drop-shadow(0 0 10px rgba(252, 186, 35, 0.8));
+.socialMedia svg:hover,
+.socialMedia a:hover {
+  color: var(--neon-cyan);
+  border-color: rgba(0, 245, 255, 0.4);
+  background: rgba(0, 245, 255, 0.06);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+  transform: translateY(-3px);
 }
 
+/* Copyright */
 .footer p {
-  color: #fcba23;
-  font-weight: 600;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: clamp(14px, 2vw, 18px);
-  text-align: center;
-  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
   letter-spacing: 1px;
+  font-weight: 500;
+  text-align: center;
 }
 
-/* --- RESPONSIVENESS --- */
+.footer p span {
+  color: var(--neon-cyan);
+}
+
+/* Nav links in footer */
+.footer-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
 
 @media only screen and (max-width: 600px) {
   .footer {
-    padding: 30px 10px;
+    padding: 36px 20px;
+    gap: 20px;
   }
 
-  .socialMedia svg {
-    margin: 10px; /* Reduce spacing on mobile */
-  }
-
-  .footer p {
-    padding: 0 10px;
-    line-height: 1.5;
-  }
-}
-
-/* Extra small devices */
-@media only screen and (max-width: 400px) {
-  .socialMedia {
-    gap: 5px;
-  }
-  
-  .socialMedia svg {
-    font-size: 35px;
+  .footer-links {
+    gap: 18px;
   }
 }

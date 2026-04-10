@@ -1,13 +1,55 @@
-.App {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body
-{
-  padding: 0;
-  margin: 0;
+:root {
+  --neon-cyan: #00f5ff;
+  --neon-purple: #bf00ff;
+  --neon-pink: #ff0080;
+  --neon-yellow: #fcba23;
+  --dark-bg: #03010a;
+  --dark-card: #0d0820;
+  --dark-panel: #0a0515;
+  --mid-dark: #130d2a;
+  --text-primary: #e8e0ff;
+  --text-secondary: #9987cc;
+  --border-glow: rgba(0, 245, 255, 0.3);
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--neon-purple);
+  color: #fff;
 }

@@ -1,102 +1,328 @@
-/* Home.css */
+/* Home.css — Cyberpunk Hero */
+
 .home {
   width: 100%;
-  height: 90vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center; /* Vertically center the content */
-  background-position: right center; /* Focus on the controller on the right */
+  align-items: center;
+  background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 0 5%;
-  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  padding: 0 6%;
+}
+
+/* Dark overlay with gradient */
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(3, 1, 10, 0.97) 0%,
+    rgba(13, 8, 32, 0.92) 40%,
+    rgba(13, 8, 32, 0.5) 70%,
+    rgba(3, 1, 10, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+/* Grid overlay */
+.home::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* Corner decoration */
+.home .corner-tl,
+.home .corner-br {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  opacity: 0.4;
+}
+
+.home .corner-tl {
+  top: 30px;
+  left: 30px;
+  border-top: 2px solid var(--neon-cyan);
+  border-left: 2px solid var(--neon-cyan);
+}
+
+.home .corner-br {
+  bottom: 30px;
+  right: 30px;
+  border-bottom: 2px solid var(--neon-purple);
+  border-right: 2px solid var(--neon-purple);
 }
 
 .headerContainer {
-  width: 100%;
-  max-width: 800px;
+  position: relative;
+  z-index: 3;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0;
+  animation: heroEntrance 1s ease both;
 }
 
-.headerContainer h1 {
-  /* clamp(min, preferred, max) - Fluid typography */
-  font-size: clamp(50px, 8vw, 110px); 
-  color: #191970;
+@keyframes heroEntrance {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Eyebrow label */
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: heroEntrance 1s ease 0.1s both;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 110px);
   font-weight: 900;
-  line-height: 1.1;
-  margin: 0;
+  line-height: 0.95;
   letter-spacing: -2px;
+  margin: 0 0 8px;
+  animation: heroEntrance 1s ease 0.2s both;
+  position: relative;
 }
 
-.headerContainer p {
-  font-size: clamp(20px, 3vw, 36px);
-  color: #191970;
-  font-weight: 600;
-  margin: 20px 0 40px 0;
-  line-height: 1.2;
+/* Split color text */
+.hero-title .title-main {
+  display: block;
+  color: #fff;
+  text-shadow: 0 0 40px rgba(255,255,255,0.1);
 }
 
-.headerContainer button {
-  background-color: #191970;
-  color: #fcba23;
+.hero-title .title-accent {
+  display: block;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 60%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.4));
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(17px, 2.5vw, 26px);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  margin: 24px 0 48px;
+  line-height: 1.5;
+  animation: heroEntrance 1s ease 0.3s both;
+  max-width: 480px;
+}
+
+.hero-subtitle span {
+  color: var(--neon-yellow);
+  font-weight: 700;
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: heroEntrance 1s ease 0.4s both;
+}
+
+.hero-btn {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  height: clamp(60px, 8vh, 80px);
-  width: clamp(200px, 20vw, 280px);
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: bold;
+  height: 60px;
+  padding: 0 40px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(25, 25, 112, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.3), 0 0 60px rgba(0, 245, 255, 0.1);
 }
 
-.headerContainer button:hover {
-  background-color: #07090a;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  transition: all 0.5s ease;
 }
 
-/* --- RESPONSIVENESS --- */
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(0, 245, 255, 0.5), 0 0 100px rgba(0, 245, 255, 0.2);
+  letter-spacing: 4px;
+}
 
-@media only screen and (max-width: 850px) {
+.hero-btn:hover::before {
+  top: -50%;
+  left: -50%;
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 245, 255, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  height: 60px;
+  padding: 0 36px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(0, 245, 255, 0.08);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2), inset 0 0 20px rgba(0, 245, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 245, 255, 0.1);
+  animation: heroEntrance 1s ease 0.5s both;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-stat-number {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* --- RESPONSIVE --- */
+
+@media only screen and (max-width: 900px) {
   .home {
-    background-position: 70% center; /* Shift background to keep controller visible */
+    background-position: 80% center;
   }
 }
 
 @media only screen and (max-width: 650px) {
   .home {
     justify-content: center;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('../assets/Banner2.jpg') !important;
-    background-position: center;
-    text-align: center;
+    padding: 100px 24px 60px;
+    background-image: linear-gradient(rgba(3,1,10,0.9), rgba(3,1,10,0.9)) !important;
   }
 
   .headerContainer {
     align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  .hero-title .title-main,
+  .hero-title .title-accent {
+    display: inline;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
   }
 
-  .headerContainer h1 {
-    font-size: 55px;
-    margin-bottom: 10px;
+  .hero-btn,
+  .hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 
-  .headerContainer p {
-    font-size: 24px;
-    margin-bottom: 30px;
+  .hero-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home .corner-tl,
+  .home .corner-br {
+    display: none;
   }
 }
 
-/* Very small devices */
 @media only screen and (max-width: 400px) {
-  .headerContainer h1 {
-    font-size: 45px;
-  }
-  
-  .headerContainer button {
-    width: 100%;
+  .hero-title {
+    font-size: 46px;
   }
 }
